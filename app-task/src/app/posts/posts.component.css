@@ -1,0 +1,17 @@
+mat-toolbar {
+  margin: 1rem;
+
+
+}
+
+mat-card {
+  width: 30%;
+  margin-left: 25rem;
+}
+
+
+mat-expansion-panel {
+  margin: 1rem;
+  width: 40%;
+}
+

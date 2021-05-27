@@ -1,0 +1,30 @@
+<mat-card>
+  <mat-card-title> Create a New Post </mat-card-title>
+  <form class="post" (submit)="onAddPost(postOrder)" #postOrder="ngForm">
+      <mat-form-field>
+        <mat-label>Enter the title</mat-label>
+        <input required matInput minlength="8" pattern="^[a-zA-z0-9\s_-]+$"
+        type="text" ngModel name="postName" placeholder="Enter the title " #postName="ngModel"/>
+        <mat-error *ngIf="postName.invalid">{{postNameError}}</mat-error>
+      </mat-form-field>
+
+    <mat-form-field >
+      <mat-label>Leave a Message</mat-label>
+      <textarea required matInput maxlength="50"
+      rows= "6" ngModel name="postContent" #postContent="ngModel"></textarea>
+      <mat-error *ngIf="postContent.invalid">{{postContentError}}</mat-error>
+
+    </mat-form-field>
+    <mat-action-row>
+      <button mat-raised-button color="accent" type="submit">Save</button>
+      <button mat-raised-button color="default" (click)="onCancelPost()" style="padding: 2px;">Cancel</button>
+    </mat-action-row>
+
+  </form>
+</mat-card>
+<hr>
+<p *ngIf="newPostsCreated">
+  <mat-card>New post Created successfully!!</mat-card>
+</p>
+
+

@@ -1,0 +1,9 @@
+mat-card {
+  width: 30%;
+  margin-left: 25rem;
+  margin-top: 1rem;
+}
+
+mat-form-field {
+  display: inline;
+}

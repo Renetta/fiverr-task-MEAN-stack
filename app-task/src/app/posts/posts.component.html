@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+  My Posts
+  <button mat-raised-button color="Primary" (click)="createPosts()" style="margin: 30rem;">Create Post</button>
+</mat-toolbar>
+
+<mat-accordion *ngIf="posts.length > 0">
+  <mat-expansion-panel *ngFor="let post of posts">
+    <mat-expansion-panel-header>
+      {{post.title}}
+    </mat-expansion-panel-header>
+      {{post.content}}
+      <mat-action-row>
+        <button mat-raised-button color="warn" (click)="onDelete(post.id)">Delete</button>
+
+      </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<p *ngIf="posts.length < 1">
+  <mat-card>No Posts Created yet</mat-card>
+</p>

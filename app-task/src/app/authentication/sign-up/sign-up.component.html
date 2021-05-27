@@ -1,0 +1,60 @@
+<mat-toolbar color="accent"></mat-toolbar>
+<mat-card>
+  <mat-card-title> Sign Up with your account </mat-card-title>
+  <form class="signup" name="signup" (submit)="onCreateUser(signupForm)"  #signupForm="ngForm">
+    <mat-form-field>
+      <input matInput type="text" ngModel name="firstname" placeholder="First Name"
+      required
+      minlength="8"
+      pattern="^[a-zA-Z0-9\s_-]+$"
+      #firstname="ngModel"/>
+      <mat-error *ngIf="firstname.invalid">
+        {{firstnameError}}
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput type="text" ngModel name="secondname" placeholder="Second Name (optional)"
+      minlength="2"
+      pattern="^[a-zA-Z0-9\s_-]+$"
+      #secondname="ngModel"/>
+      <mat-error *ngIf="secondname.invalid">
+        {{secondnameError}}
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput type="text" ngModel name="username" placeholder="UserName"
+      required
+      minlength="8"
+      pattern="^[a-zA-Z0-9\s_-]+$"
+      #username="ngModel"/>
+      <mat-error *ngIf="username.invalid">
+        {{usernameError}}
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput type="email" ngModel name="email" placeholder="Enter your email"
+      pattern ="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" required #email="ngModel">
+      <mat-error *ngIf="email.invalid">{{emailError}}</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+     <input matInput [type]="hide ? 'password' : 'text'" pattern ="^([a-zA-Z0-9@*#]{8,15})$"
+      ngModel name ="password" placeholder="Password" required
+      #password ="ngModel"/>
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="password.invalid">{{passwordError}}</mat-error>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="accent" type = "submit" >Sign Up</button>
+  </form>
+  <br>
+  <mat-card-subtitle>Already have an account?
+    <a [routerLink]="['/application/login']" fragment="application-new-registration"
+    class="green">Sign in.</a>
+  </mat-card-subtitle>
+</mat-card>

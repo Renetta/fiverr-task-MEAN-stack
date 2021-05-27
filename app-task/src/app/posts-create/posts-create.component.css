@@ -1,0 +1,14 @@
+mat-card {
+  width: 60%;
+  margin: auto;
+  margin-top: 5%;
+  /* background: dodgerblue;
+  color: white; */
+}
+
+mat-form-field,
+  textarea {
+    width: 100%;
+  }
+
+

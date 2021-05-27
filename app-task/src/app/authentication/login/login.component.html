@@ -1,0 +1,39 @@
+<mat-toolbar color="accent"></mat-toolbar>
+<mat-card>
+  <mat-card-title> Login to your Application </mat-card-title>
+  <form class="login" name="login" (submit)="onLogin(loginForm)" #loginForm="ngForm">
+    <!-- <mat-form-field>
+      <input matInput type="text" ngModel name="username" placeholder="UserName"
+      required
+      minlength="8"
+      pattern="^[a-zA-Z0-9\s_-]+$"
+      #username="ngModel"/>
+      <mat-error *ngIf="username.invalid">
+        {{usernameError}}
+      </mat-error>
+    </mat-form-field> -->
+
+    <mat-form-field>
+      <input matInput type="email" ngModel name="email" placeholder="Enter your email"
+      pattern ="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" required #email="ngModel">
+      <mat-error *ngIf="email.invalid">{{emailError}}</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+     <input matInput [type]="hide ? 'password' : 'text'" pattern ="^([a-zA-Z0-9@*#]{8,15})$"
+      ngModel name ="password" placeholder="Password" required
+      #password ="ngModel"/>
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="password.invalid">{{passwordError}}</mat-error>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="accent" type = "submit" >Login</button>
+  </form>
+  <br>
+  <mat-card-subtitle>Don't have an account?
+    <a [routerLink]="['/application/signup']" fragment="application-new-registration"
+    class="blue">Sign Up</a>
+  </mat-card-subtitle>
+</mat-card>

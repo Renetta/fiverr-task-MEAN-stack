@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav nav-right" style="padding-left: 70%;">
+      <li class="nav-item active">
+          <a [routerLink]="['/home/posts']" fragment="home-posts" class="nav-link">
+              Posts
+          </a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/login']" fragment="logout" (click)="logout()">
+              Logout
+          </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>
