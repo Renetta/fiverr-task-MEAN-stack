@@ -64,9 +64,9 @@ bruteforce.prevent, (req, res, next) => {
       expiresIn: '1h'
     });
 
-    console.log('token ---', token);
     res.status(200).json({
-      token:token
+      token:token,
+      currentUser: fetchedUser
     });
   })
   .catch(error => {

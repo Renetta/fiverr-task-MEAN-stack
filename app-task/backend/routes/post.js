@@ -19,15 +19,12 @@ router.post('', checkAuth, (req, res, next) => {
   });
 
   posts.save();
-  console.log('posts----', posts);
-
   res.status(201).json({
     message:" Posts created successfully",
   })
 });
 
 router.post('/delete', checkAuth, (req, res, next) => {
-  console.log('iddd', req.body.id);
   Post.findOneAndDelete({_id: req.body.id})
 	.then(() =>{
 		res.status(201).json({

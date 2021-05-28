@@ -9,7 +9,7 @@ module.exports = (req, res, next) => {
   }
   catch(error) {
     res.status(401).json({
-      message: "No valid token Exists"
+      message: "Authentication Failure!! (Reason - NO VALID TOKEN EXISTS)"
     });
   }
 };
